@@ -16,7 +16,7 @@ def login_admin():
     while True :
         try :
             print("===================================")
-            print("            LOGIN ADMIN           ")
+            print("            LOGIN ADMIN            ")
             print("===================================")
             username = str(input("Masukan Username : "))
             password= int(input("Masukan Password : "))
@@ -59,14 +59,11 @@ def menu_admin():
                     deskripsi = input("Masukan deskripsi tempat wisata : ")
                     wisata_controller.add_wisata(nama_wisata, lokasi, deskripsi)
                     print("Tempat wisata telah ditambahkan!")
-                    pass
                 elif opsi == '2':
                     os.system('cls')
-                    id_wisata = input("Masukan ID tempat wisata (Kosongkan untuk melihat semua tempat wisata) : ")
-                    if id_wisata:
-                        wisata = wisata_controller.get_wisata(id_wisata)
-                    else:
-                        wisata = wisata_controller.get_wisata()
+                    all_wisata = wisata_controller.get_wisata()
+                    for wisata in all_wisata:
+                        print(f"ID: {wisata[0]}, Nama Wisata: {wisata[1]}, Lokasi: {wisata[2]}, Deskripsi: {wisata[3]}")
                 elif opsi == '3':
                     os.system('cls')
                     id_wisata = input("Masukan ID tempat wisata : ")
@@ -74,17 +71,14 @@ def menu_admin():
                     lokasi = input("Masukan lokasi tempat wisata baru (Kosongkan untuk tidak merubah lokasi) : ")
                     deskripsi = input("Masukan deskripsi tempat wisata baru (Kosongkan untuk tidak merubah deskripsi) : ")
                     wisata_controller.edit_wisata(id_wisata, nama_wisata, lokasi, deskripsi)
-                    pass
                 elif opsi == '4':
                     os.system('cls')
                     id_wisata = input("Masukan ID tempat wisata yang ingin dihapus: ")
                     wisata_controller.delete_wisata(id_wisata)
                     print("Tempat wisata telah dihapus!")
-                    pass
                 elif opsi == '5':
                     search_query = input("Masukan nama atau lokasi wisata: ")
                     wisata_controller.search_wisata(search_query)
-                    pass
                 elif opsi == '6':
                     print("1. Ascending")
                     print("2. Descending")
@@ -95,7 +89,6 @@ def menu_admin():
                         wisata_controller.show_sorted_wisata_descending()
                     else:
                         print("Opsi tidak tersedia!")
-                    pass
                 elif opsi == '7':
                     pass
                 elif opsi == '8':

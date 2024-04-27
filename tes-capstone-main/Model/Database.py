@@ -58,13 +58,8 @@ class Database:
     
     def get_wisata(self, id_wisata = None):
         myCursor = self.connection.cursor()
-        if id_wisata:
-            query = "SELECT * FROM Wisata WHERE ID_Wisata = %s"
-            myCursor.execute(query, (id_wisata,))
-        else:
-            query = "SELECT * FROM Wisata"
-            myCursor.execute(query)
-        
+        query  = "SELECT * FROM Wisata"
+        myCursor.execute(query)
         return myCursor.fetchall()
     
     def update_wisata(self, id_wisata,  nama_wisata=None, lokasi=None, deskripsi=None):

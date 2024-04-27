@@ -7,8 +7,8 @@ class WisataController:
     def add_wisata(self, nama_wisata, lokasi, deskripsi):
         return self.db.add_wisata(nama_wisata, lokasi, deskripsi)
     
-    def get_wisata(self, wisata_id = None):
-        return self.db.get_wisata(wisata_id)
+    def get_wisata(self):
+        return self.db.get_wisata()
     
     def update_wisata(self, wisata_id, nama_wisata, lokasi, deskripsi):
         self.db.update_wisata(wisata_id, nama_wisata, lokasi, deskripsi)
